@@ -89,11 +89,104 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
+
+var passwordlength;
+var lowercase;
+var uppercase;
+var numeric;
+var special;
+
+
 function getPasswordOptions() {
+
+
+  function passwordLength() {
+    passwordlength = prompt("Please indicate password length");
+    if (passwordlength >= 10 && passwordlength <= 64) {
+      return passwordlength;
+    }
+    else {
+      alert("Password must be between 10 and 64 characters");
+      return passwordLength();
+    }
+  };
+
+
+   function lowerCase() {
+    lowercase = prompt("Do you want the password to contain lowercase characters? (yes/no)");
+    if (lowercase == "yes" || lowercase == "no") {
+      return lowercase;
+    }
+    else {
+      alert("please answer yes or no");
+      return prompt("Do you want the password to contain lowercase characters? (yes/no)")
+    }
+  };
+
+
+
+function upperCase() {
+    uppercase = prompt("Do you want the password to contain uppercase characters? (yes/no)");
+    if (uppercase == "yes" || uppercase == "no") {
+      return uppercase;
+    }
+    else {
+      alert("please answer yes or no");
+      return prompt("Do you want the password to contain uppercase characters? (yes/no)")
+    }
+  };
+
+
+
+ function Numeric() {
+    numeric = prompt("Do you want the password to contain numeric characters? (yes/no)");
+    if (numeric == "yes" || numeric == "no") {
+      return numeric;
+    }
+    else {
+      alert("please answer yes or no");
+      return prompt("Do you want the password to contain numeric characters? (yes/no)")
+    }
+  };
+
+
+
+ function Special() {
+    special = prompt("Do you want the password to contain special characters? (yes/no)");
+    if (special == "yes" || special == "no") {
+      return special;
+    }
+    else {
+      alert("please answer yes or no");
+      return prompt("Do you want the password to contain special characters? (yes/no)")
+    }
+  };
+
+  function Validate(){
+    if (lowercase == "no" && uppercase == "no" && numeric== "no" && special== "no") {
+      alert("At least one character type should be selected");
+      return getPasswordOptions() ;
+    }
+  }
+
+  passwordLength();
+  lowerCase();
+  upperCase();
+  Numeric();
+  Special();
+  Validate();
 
 }
 
+
+getPasswordOptions();
+
+
+
+
+
 // Function for getting a random element from an array
+
 function getRandom(arr) {
 
 }
