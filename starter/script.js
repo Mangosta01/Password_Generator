@@ -95,6 +95,10 @@ var lowercase;
 var uppercase;
 var numeric;
 var special;
+var randomElement;
+
+
+
 
 
 function getPasswordOptions() {
@@ -124,7 +128,6 @@ function getPasswordOptions() {
   };
 
 
-
 function upperCase() {
     uppercase = prompt("Do you want the password to contain uppercase characters? (yes/no)");
     if (uppercase == "yes" || uppercase == "no") {
@@ -135,7 +138,6 @@ function upperCase() {
       return prompt("Do you want the password to contain uppercase characters? (yes/no)")
     }
   };
-
 
 
  function Numeric() {
@@ -178,8 +180,8 @@ function upperCase() {
 
 }
 
-
 getPasswordOptions();
+
 
 
 
@@ -188,24 +190,33 @@ getPasswordOptions();
 // Function for getting a random element from an array
 
 function getRandom(arr) {
-
+var randomElement = arr[Math.floor(Math.random()* arr.length)];
+return randomElement;
 }
 
 // Function to generate password with user input
+
+
 function generatePassword() {
 
 }
 
+
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
+
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
 
+  var passwordText = document.querySelector('#password');
+  var password = generatePassword();
   passwordText.value = password;
+ 
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+
