@@ -95,7 +95,6 @@ var lowercase;
 var uppercase;
 var numeric;
 var special;
-var randomElement;
 
 
 
@@ -190,14 +189,38 @@ getPasswordOptions();
 // Function for getting a random element from an array
 
 function getRandom(arr) {
-var randomElement = arr[Math.floor(Math.random()* arr.length)];
-return randomElement;
+  var randomElement = "";
+  for (var i = 0; i < passwordlength; i++)
+    randomElement += arr.join("").charAt(Math.floor(Math.random() * arr.length));
+  return randomElement;
 }
 
 // Function to generate password with user input
 
-
 function generatePassword() {
+  var targetcharacters = [];
+  var result;
+
+
+
+  if (lowercase == "yes") {
+    targetcharacters = targetcharacters.concat(lowerCasedCharacters);
+  }
+
+  if (uppercase == "yes") {
+    targetcharacters = targetcharacters.concat(upperCasedCharacters);
+  }
+  if (numeric == "yes") {
+    targetcharacters = targetcharacters.concat(numericCharacters);
+  }
+
+  if (special == "yes") {
+    targetcharacters = targetcharacters.concat(specialCharacters);
+  }
+
+   result = getRandom(targetcharacters);
+
+   return result;
 
 }
 
