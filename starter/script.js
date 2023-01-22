@@ -179,9 +179,9 @@ function upperCase() {
 
 }
 
-getPasswordOptions();
-
-
+// Get references to the #generate element
+var generateBtn = document.querySelector('#generate');
+generateBtn.addEventListener('click', getPasswordOptions);
 
 
 
